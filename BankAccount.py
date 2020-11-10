@@ -40,3 +40,18 @@ class BankAccount:
         balance and then also return the current balance of the account. """
         print(f"Your current balance is: ${self.balance}")
         return self.balance
+
+    #Add_interest Method
+    def add_interest(self):
+        balance = self.balance
+        """The add_interest method adds interest to the users balance. The annual interest 
+        rate is 1% (i.e. 0.083% per month). Thus, the monthly interest is calculated by the
+        following equation: interest = balance *  0.00083 """
+        interest = balance *  0.00083
+        self.balance += round(interest, 2)
+
+
+        
+
+
+
