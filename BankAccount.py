@@ -1,3 +1,4 @@
+from random
 class BankAccount:
     #Step 3: Attributes:
     def __init__(self, full_name, account_number, routing_number, balance):
@@ -50,8 +51,21 @@ class BankAccount:
         interest = balance *  0.00083
         self.balance += round(interest, 2)
 
+    #Print_receipt Method
+    def print_receipt(self):
+        """ The print_receipt method prints a receipt with the account name, account number, and balance like this:
+        Joi Anderson
+        Account No.: ****5678
+        Routing No.: 98765432
+        Balance: $100.00   
+        """
+        account_no = str(self.account_number)
 
-        
+        print(f"Account Holder: {self.full_name}")
+        print(f"Account number: ****{account_no[-4:]}")
+        print(f"Routing number: {self.routing_number}")
+        print(f"Balance: ${self.balance}")
+    
 
 
 
