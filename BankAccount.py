@@ -34,3 +34,9 @@ class BankAccount:
             self.balance -= amount
             print(f"Amount Withdrawn: ${amount}")
     
+    #Get_Balance Method
+    def get_balance(self):
+        """ The get_balance method will print a user-friendly message with the account 
+        balance and then also return the current balance of the account. """
+        print(f"Your current balance is: ${self.balance}")
+        return self.balance
