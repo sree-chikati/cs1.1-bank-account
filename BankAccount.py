@@ -7,10 +7,11 @@ class BankAccount:
         self.balance = 0
 
     #Step 4: Methods:
+    
+    #Deposit Method
     def deposit(self, amount):
         """The deposit method will take one parameter amount 
         and will add amount to the balance. Also, it will print 
         the message: “Amount Deposited: $X.XX” """
         self.balance += amount
-        print(f"Amount Deposited: ${self.balance}")
-        return self.balance
+        print(f"Amount Deposited: ${amount}")
