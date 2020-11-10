@@ -83,7 +83,7 @@ def createAccountNo():
     return int(account_no)
 
 # Account 1
-Sree = BankAccount("Aldrin", createAccountNo(), 123456789, 0)
+Sree = BankAccount("Sree", createAccountNo(), 123456789, 0)
 Sree.balance = 10
 Sree.withdraw(5)
 Sree.deposit(10)
