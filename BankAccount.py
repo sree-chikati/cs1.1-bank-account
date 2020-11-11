@@ -1,10 +1,11 @@
 from random import randint
+
 class BankAccount:
+    routing_number = 123456789
     #Step 3: Attributes:
-    def __init__(self, full_name, account_number, routing_number, balance):
+    def __init__(self, full_name, account_number, balance):
         self.full_name = full_name
         self.account_number = account_number
-        self.routing_number = routing_number
         self.balance = 0
 
     #Step 4: Methods:
@@ -17,7 +18,7 @@ class BankAccount:
 
         self.balance += amount
         print(f"Amount Deposited: ${amount}")
-        print("\n")
+        
 
     #Witdraw Method
     def withdraw(self, amount):
@@ -27,15 +28,15 @@ class BankAccount:
         withdraw an amount that is greater than the current balance, 
         print ”Insufficient funds.” and charge them with an overdraft
         fee of $10. """
-
+        self.balance -= amount
+        
         if amount > self.balance:
             print("Insufficient funds")
-            self.balance -=10
+            self.balance -= 10
 
         else:
-            self.balance -= amount
             print(f"Amount Withdrawn: ${amount}")
-        print("\n")
+        
     
     #Get_Balance Method
     def get_balance(self):
@@ -43,7 +44,7 @@ class BankAccount:
         balance and then also return the current balance of the account. """
         print(f"Your current balance is: ${self.balance}")
         return self.balance
-        print("\n")
+        
 
     #Add_interest Method
     def add_interest(self):
@@ -53,7 +54,7 @@ class BankAccount:
         following equation: interest = balance *  0.00083 """
         interest = balance *  0.00083
         self.balance += round(interest, 2)
-        print("\n")
+        
 
     #Print_receipt Method
     def print_receipt(self):
@@ -69,7 +70,7 @@ class BankAccount:
         print(f"Account number: ****{account_num[-4:]}")
         print(f"Routing number: {self.routing_number}")
         print(f"Balance: ${self.balance}")
-        print("\n")
+        
     
 
 #Step 5: Outside of the BankAccount class, define 3 different bank account examples using the BankAccount() object.
@@ -82,28 +83,104 @@ def createAccountNo():
         account_no += str(randint(0, 9))
     return int(account_no)
 
-# Account 1
-Sree = BankAccount("Sree", createAccountNo(), 123456789, 0)
-Sree.balance = 10
-Sree.withdraw(5)
-Sree.deposit(10)
-Sree.print_receipt()
 
-# Account 2
-Hiro = BankAccount("Hiro", createAccountNo(), 123456789, 0)
-Hiro.balance = 100
-Hiro.withdraw(50)
-Hiro.deposit(15)
-Hiro.print_receipt()
+#Stretch Challange: Create a Bank Account
+while True:
+    print("Welcome to the BigHero ATM")
+    atm_name = input("Which account would you like to check today? 1) Sree. 2) Hiro. 3) Baymax: ")
+    atm_actions = input("Would you like to 1)Get Balance. 2)Deposit. 3) Withdraw: ")
 
-# Account 3 
-Baymax = BankAccount("Baymax", createAccountNo(), 123456789, 0)
-Baymax.balance = 1000
-Baymax.withdraw(500)
-Baymax.deposit(25)
-Baymax.print_receipt()
+    #Account 1
+    if atm_name == str(1):
+        Sree = BankAccount("Sree", createAccountNo(), 0)
+        Sree.balance = 10
+        if atm_actions == str(1):
+            print("\n")
+            print (Sree.get_balance())
+            print("\n")
+            print("This is your recepit: ")
+            Sree.print_receipt()
+            break
+        
+        elif atm_actions == str(2):
+            print("\n")
+            deposit = input("Enter the amount you would like to deposit: ")
+            print (Sree.deposit(int(deposit)))
+            print("\n")
+            print("This is your recepit: ")
+            Sree.print_receipt()
+            break
 
+        elif atm_actions == str(3):
+            print("\n")
+            withdraw = input("Enter the amount you would like to withdraw: ")
+            print (Sree.withdraw(int(withdraw)))
+            print("\n")
+            print("This is your recepit: ")
+            Sree.print_receipt()
+            break
 
+    #Account 2
+    elif atm_name == str(2):
+        Hiro = BankAccount("Hiro", createAccountNo(), 0)
+        Hiro.balance = 100
+        if atm_actions == str(1):
+            print("\n")
+            print (Hiro.get_balance())
+            print("\n")
+            print("This is your recepit: ")
+            Hiro.print_receipt()
+            break
+        
+        elif atm_actions == str(2):
+            print("\n")
+            deposit = input("Enter the amount you would like to deposit: ")
+            print (Hiro.deposit(int(deposit)))
+            print("\n")
+            print("This is your recepit: ")
+            Hiro.print_receipt()
+            break
 
+        elif atm_actions == str(3):
+            print("\n")
+            withdraw = input("Enter the amount you would like to withdraw: ")
+            print (Hiro.withdraw(int(withdraw)))
+            print("\n")
+            print("This is your recepit: ")
+            Hiro.print_receipt()
+            break
+
+    #Account 3
+    elif atm_name == str(3):
+        Baymax = BankAccount("Baymax", createAccountNo(), 0)
+        Baymax.balance = 1000
+        if atm_actions == str(1):
+            print("\n")
+            print (Baymax.get_balance())
+            print("\n")
+            print("This is your recepit: ")
+            Baymax.print_receipt()
+            break
+        
+        elif atm_actions == str(2):
+            print("\n")
+            deposit = input("Enter the amount you would like to deposit: ")
+            print (Baymax.deposit(int(deposit)))
+            print("\n")
+            print("This is your recepit: ")
+            Baymax.print_receipt()
+            break
+
+        elif atm_actions == str(3):
+            print("\n")
+            withdraw = input("Enter the amount you would like to withdraw: ")
+            print (Baymax.withdraw(int(withdraw)))
+            print("\n")
+            print("This is your recepit: ")
+            Baymax.print_receipt()
+            break
+
+    else: 
+        print("Please select one of your accounts")
 
 
